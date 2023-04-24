@@ -33,11 +33,15 @@ final router = GoRouter(
             pageBuilder: (context, state) {
               return CustomTransitionPage(
                 transitionDuration: const Duration(milliseconds: 500),
+                reverseTransitionDuration: const Duration(microseconds: 300),
                 key: state.pageKey,
                 child: const SignUpPage(),
                 transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                  return FadeTransition(
-                    opacity: CurveTween(curve: Curves.bounceInOut).animate(animation),
+                  return SlideTransition(
+                    position: Tween<Offset>(begin: const Offset(1, 0), end: Offset.zero)
+                        .animate(animation),
+
+                    //Tween(curve: Curves.bounceIn).animate(animation),
                     child: child,
                   );
                 },
@@ -48,7 +52,20 @@ final router = GoRouter(
             name: RouteName.signIn,
             path: 'signIn',
             pageBuilder: (context, state) {
-              return customTransitionPage(page: const SignInPage(), state: state);
+              return CustomTransitionPage(
+                transitionDuration: const Duration(milliseconds: 500),
+                key: state.pageKey,
+                child: const SignInPage(),
+                transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                  return SlideTransition(
+                    position: Tween<Offset>(begin: const Offset(1, 0), end: Offset.zero)
+                        .animate(animation),
+
+                    //Tween(curve: Curves.bounceIn).animate(animation),
+                    child: child,
+                  );
+                },
+              );
             },
           ),
         ]),

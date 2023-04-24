@@ -27,7 +27,7 @@ class LoginPage extends StatelessWidget {
                 color: Color(0xFFA1A4B2), fontSize: 15, height: 2.0, fontFamily: 'Roboto_Light'),
           ),
         ]),
-        const Positioned.fill(bottom: 0, child: MyBottomWidget())
+        const Positioned.fill(bottom: 10, child: MyBottomWidget())
       ]),
     );
   }
@@ -62,7 +62,7 @@ class MyBottomWidget extends StatelessWidget {
               style: TextStyle(color: Color(0xFFA1A4B2)),
             ),
             TextButton(
-                onPressed: () => print(''),
+                onPressed: () => GoRouter.of(context).pushNamed(RouteName.signIn),
                 child: Text(
                   'LOG IN',
                   style: TextStyle(color: colorContant.primaryColor),
