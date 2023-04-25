@@ -8,7 +8,7 @@ class TopicPage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
           child: Column(
-        children: [Text('What Brings you to Silent Moon?')],
+        children: const [Text('What Brings you to Silent Moon?')],
       )),
     );
   }
